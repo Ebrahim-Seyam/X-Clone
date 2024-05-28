@@ -11,6 +11,7 @@ export default function Post({ post, id }:any) {
                 className='h-11 w-11 rounded-full mr-4'
             />
             <div className='flex-1'>
+                <Link href={`/posts/${id}`}>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center space-x-1 whitespace-nowrap'>
                         <h4 className='font-bold text-sm truncate'>{post?.name}</h4>
@@ -19,7 +20,6 @@ export default function Post({ post, id }:any) {
                     <HiDotsHorizontal className='text-sm' />
                 </div>
 
-                <Link href={`/posts/${id}`}>
                     <p className='text-gray-800 text-sm my-3'>{post?.text}</p>
                 </Link>
                 <Link href={`/posts/${id}`}>
