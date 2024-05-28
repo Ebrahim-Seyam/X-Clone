@@ -1,3 +1,4 @@
+
 import {
     collection,
     getDocs,
@@ -8,12 +9,15 @@ import {
 
 import { app } from '../app/firebase';
 import Post from './Post';
+import { useEffect } from 'react';
 
 export default async function Feed() {
     const db = getFirestore(app);
     const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
     const querySnapshot = await getDocs(q);
-    let data:any = [];
+    console.log("🚀 ~ Feed ~ querySnapshot:", querySnapshot)
+ 
+    const data:any = [];
     querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
     });

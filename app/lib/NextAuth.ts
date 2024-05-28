@@ -7,11 +7,7 @@ export const NextOptions: AuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  session: {
-    strategy: "jwt",
-    maxAge: 7 * 24 * 60 * 60,
-  },
-
+  
   callbacks: {
     async session({ session, token }:any) {
       session.user.username = session.user.name
